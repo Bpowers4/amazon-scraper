@@ -13,7 +13,7 @@ class AmazonScraper(scrapy.Spider):
 
     def start_requests(self):
         # starting urls for scraping
-        urls = ["https://www.amazon.in/s?k=mobile&ref=nb_sb_noss_2"]
+        urls = ["https://www.amazon.com/stores/InteplastGroup/node/5299105011"]
 
         for url in urls: yield scrapy.Request(url = url, callback = self.parse, headers = self.headers)
 
