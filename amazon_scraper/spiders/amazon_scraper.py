@@ -5,7 +5,7 @@ class AmazonScraper(scrapy.Spider):
     name = "amazon_scraper"
 
     # How many pages you want to scrape
-    no_of_pages = 1
+    no_of_pages = 30
 
     # Headers to fix 503 service unavailable error
     # Spoof headers to force servers to think that request coming from browser ;)
@@ -13,7 +13,7 @@ class AmazonScraper(scrapy.Spider):
 
     def start_requests(self):
         # starting urls for scraping
-        urls = ["https://www.amazon.com/stores/InteplastGroup/node/5299105011","https://www.amazon.com/stores/PittPlastics/node/9497768011"]
+        urls = ["https://www.amazon.com/stores/InteplastGroup/node/5299105011","https://www.amazon.com/stores/PittPlastics/node/9497768011","https://www.amazon.com/BLACK-Trash-Liners-THICKNESS-1-50MIL/dp/B01FGFXNZC/ref=sr_1_1?keywords=EC333915K+pitt+plastics&qid=1580146189&sr=8-1","https://www.amazon.com/Pitt-Plastics-MR43483MC-High-Density-Mini-Roll/dp/B018HUK144/ref=sr_1_23?qid=1575298262&sr=8-23&srs=9497768011"]
 
         for url in urls: yield scrapy.Request(url = url, callback = self.parse, headers = self.headers)
 
